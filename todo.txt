@@ -1,0 +1,21 @@
+Completed the following pages
+
+	User
+	Holiday
+	Violation
+	Time Code
+	Time Shift
+	DTR Format
+	Payroll Period
+	Company Information
+	Leave Credit
+	Dept/Position
+	Scheduler
+	Branch/Reader
+	Deduction
+
+Remaining pages which are not yet done but already have their UI/UX
+
+	System
+	
+	

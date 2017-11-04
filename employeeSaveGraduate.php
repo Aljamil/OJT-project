@@ -1,0 +1,69 @@
+<?php
+    require('../ojt/connectDB.php');
+?>
+
+<?php
+    if(isset($_POST['HiddenEmployeeID'])) {
+        $employeeID = $_POST['HiddenEmployeeID'];
+    } else {
+        $employeeID = 'null';
+    }
+    
+    if(isset($_POST['GraduateSchoolName'])) {
+        $graduateSchoolName = $_POST['GraduateSchoolName'];
+    } else {
+        $graduateSchoolName = 'null';
+    }
+    
+    if(isset($_POST['GraduateAddress'])) {
+        $graduateAddress = $_POST['GraduateAddress'];
+    } else {
+        $graduateAddress = 'null';
+    }
+    
+    if(isset($_POST['GraduateDegree'])) {
+        $graduateDegree = $_POST['GraduateDegree'];
+    } else {
+        $graduateDegree = 'null';
+    }
+    
+    if(isset($_POST['GraduateYear'])) {
+        $graduateYear = $_POST['GraduateYear'];
+    } else {
+        $graduateYear = 'null';
+    }
+    
+    if(isset($_POST['GraduateHighestLevel'])) {
+        $graduateHighestLevel = $_POST['GraduateHighestLevel'];
+    } else {
+        $graduateHighestLevel = 'null';
+    }
+    
+    if(isset($_POST['GraduateInclusiveDates'])) {
+        $graduateInclusiveDates = $_POST['GraduateInclusiveDates'];
+    } else {
+        $graduateInclusiveDates = 'null';
+    }
+    
+    if(isset($_POST['GraduateHonor'])) {
+        $graduateHonor = $_POST['GraduateHonor'];
+    } else {
+        $graduateHonor = 'null';
+    }
+    
+    $sql = "Select * from employee where EmployeeID='$employeeID'";
+    $result = mysqli_query($connection, $sql);
+    
+    if (mysqli_num_rows($result) > 0) {
+        $sql = "Insert into employee_education(`EmployeeID`, `SchoolName`, `SchoolAddress`, `SchoolDegree`, `GraduateYear`, `HighestLevel`, `InclusiveDate`, `Honor`, `RefNo`) VALUES ('$employeeID', '$graduateSchoolName', '$graduateAddress', '$graduateDegree', '$graduateYear', '$graduateHighestLevel', '$graduateInclusiveDates', '$graduateHonor', '5')";
+        
+        $result = mysqli_query($connection, $sql);
+        echo "Success";
+    } else {
+        echo "Empty";
+    }
+?>
+
+<?php
+    mysqli_close($connection);
+?>
